@@ -1,0 +1,49 @@
+#include<iostream>
+#include<stdio.h>
+#include<map>
+#include<string>
+#include<dirent.h>
+#include<list>
+#include<cstring>
+#include<vector>
+#include<sys/types.h>
+#include<stdlib.h>
+#include<algorithm>
+#include<cctype>
+using namespace std;
+const int MAXS=100*1024*1024;
+char buf[MAXS];
+typedef struct document{
+	string fname;
+	string fcontent;
+}doc;
+vector<doc> docs;
+map<string,list<int> > myindex;
+char* trim(char *src)
+{
+	char *fp=src;
+	while(*src)
+	{
+		if(*src!=' '&&*src!='\t'&&*src!='\r')
+		{
+			fp=src;
+			break;
+		}
+		src++;
+	}
+	while(*src)
+	{
+		if(*src==' '||*src=='\t'||*src=='\r')
+		{
+			*src='\0';
+			break;
+		}
+		src++;
+	}
+	return fp;
+}
+string strtolow(string str)
+{
+	transform(str.begin(),str.end(),str.begin(),::tolower);
+	return str;
+}

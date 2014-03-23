@@ -1,0 +1,9 @@
+Stop words, YES
+normalization, YES
+tokenization, YES
+lowercasting, YES
+stemming, YES
+non-latin alphabets, YES
+Umlauts, YES
+Compounds, YES
+numbers, YES

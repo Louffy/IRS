@@ -1,0 +1,13 @@
+Assignment #3: Implementing a retrieval system for supporting spelling errors 
+
+1,Support spelling correction with Levenshtain distance.
+
+Run by: 
+
+make                  #create myindex and mysearch
+
+./myindex	          #The index has been built. If you want to build again, run this!
+                       You must put docs in ./input/doc_data/, and build the index,
+                       
+./mysearch < query    # Search for the given query. Proximity query : the default distance of two terms £º10 letters£¬
+						you can modify it in ./util/util.h : #define K 10

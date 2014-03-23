@@ -1,0 +1,6 @@
+#ifndef PATH_H
+#define PATH_H
+const string datapath="../input/doc_data/";
+const string indexpath="../input/index_data/index.txt";
+const string fileidpath="../input/index_data/index.txt";
+#endif

@@ -1,0 +1,50 @@
+#include"irs.h"
+void readallfile()
+{
+	struct dirent *pDirEntry=NULL;
+	DIR *pDir=NULL;
+	int len=50000000;
+	FILE *fp;
+	string dir="./input/";
+	if((pDir=opendir("./input/"))==NULL)
+	{
+		cout<<"open dir failed!"<<endl;
+	}
+	else
+	{
+		int i=1;
+		while((pDirEntry=readdir(pDir))!=NULL)
+		{
+			if(!strcmp(pDirEntry->d_name,"..")||!strcmp(pDirEntry->d_name,"."))
+				continue;
+		//	cout<<i<<" Read OK : "<<pDirEntry->d_name<<endl;
+			i++;
+			dir=dir+pDirEntry->d_name;
+		//	cout<<dir<<endl;
+			if((fp=fopen(dir.c_str(),"r"))==NULL)
+			{
+				cout<<"open file error"<<endl;
+			}
+			else
+			{
+				fread(buf,1,len,fp);
+		//		cout<<buf<<endl;
+				fclose(fp);
+				doc pdoc;
+				pdoc.fname=pDirEntry->d_name;
+				pdoc.fcontent=buf;
+				docs.push_back(pdoc);
+			//	cout<<"Save : "<<pDirEntry->d_name<<endl;
+			
+			}
+			dir="./input/";
+			memset(buf,0,sizeof(buf));
+		}
+		closedir(pDir);
+	}
+//	cout<<docs[30].fcontent<<endl;
+	cout<<docs[30].fname<<endl;
+	cout<<docs[30].fcontent.length()<<endl;
+	cout<<docs[42].fname<<endl;
+	cout<<docs[42].fcontent.length()<<endl;
+}

@@ -1,0 +1,13 @@
+#include<iostream>
+#include"../index/index.h"
+using namespace std;
+int main()
+{
+	cout<<"zfxxx";
+	Index myindex;
+	cout<<"zfx";
+	myindex.readDocsFile();
+	myindex.genIndex();
+	myindex.writeIndexFile();
+	return 0;
+}
